@@ -19,5 +19,8 @@
   "homepage": "https://github.com/Balthazar-Delvaux/BeCodeMessenger#readme",
   "dependencies": {
     "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.1"
   }
 }
