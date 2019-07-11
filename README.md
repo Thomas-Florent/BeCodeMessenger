@@ -52,7 +52,7 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2019 [Balthazar, Thomas, Sebastien](https://github.com/Balthazar-Delvaux).<br />
+Copyright © 2019.<br />
 This project is [ISC](https://github.com/Balthazar-Delvaux/BeCodeMessenger/blob/master/LICENSE) licensed.
 
 ***
