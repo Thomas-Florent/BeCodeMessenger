@@ -39,8 +39,8 @@ npm run test
 👤 **Balthazar, Thomas, Sebastien**
 
 * Github: [@Balthazar-Delvaux](https://github.com/Balthazar-Delvaux)
-[@Balthazar-Delvaux](https://github.com/Balthazar-Delvaux)
-[@Balthazar-Delvaux](https://github.com/Balthazar-Delvaux)
+[@Thomas-Florent](https://github.com/Thomas-Florent)
+[@sebastienchantrie](https://github.com/sebastienchantrie)
 
 ## 🤝 Contributing
 
