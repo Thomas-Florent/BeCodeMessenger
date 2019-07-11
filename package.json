@@ -20,5 +20,8 @@
   "dependencies": {
     "morgan": "^1.9.1",
     "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.1"
   }
 }
