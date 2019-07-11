@@ -1,4 +1,23 @@
 const express = require('express');
 const app = express();
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
 
-app.listen(8000, () => console.log('Server running on port 8000'));
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+})
+
+io.on('connection', socket => {
+    console.log('a user connected');
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    });
+});
+
+io.on('connection', socket => {
+    socket.on('chat message', function(msg){
+      io.emit('chat message', msg);
+    });
+  });
+  
+http.listen(3000, () => console.log('Server running on port 3000'));
