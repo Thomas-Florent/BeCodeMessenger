@@ -56,4 +56,4 @@ Copyright © 2019.<br />
 This project is [ISC](https://github.com/Balthazar-Delvaux/BeCodeMessenger/blob/master/LICENSE) licensed.
 
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+
