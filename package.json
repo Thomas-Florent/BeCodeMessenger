@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Balthazar-Delvaux/BeCodeMessenger#readme",
   "dependencies": {
+    "morgan": "^1.9.1",
     "socket.io": "^2.2.0"
   }
 }
