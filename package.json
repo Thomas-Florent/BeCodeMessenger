@@ -1,0 +1,23 @@
+{
+  "name": "becodemessenger",
+  "version": "1.0.0",
+  "description": "Le chat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Balthazar-Delvaux/BeCodeMessenger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Balthazar-Delvaux/BeCodeMessenger/issues"
+  },
+  "homepage": "https://github.com/Balthazar-Delvaux/BeCodeMessenger#readme",
+  "dependencies": {
+    "socket.io": "^2.2.0"
+  }
+}
