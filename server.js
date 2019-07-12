@@ -25,7 +25,7 @@ io.on('connection', socket => {
   
   //listen on change_username
   socket.on('change_username', data => {
-    console.log(`User ${socket.username} (${socket.id}) changed his name to ${data.username})`)
+    console.log(`User ${socket.username} (${socket.id}) changed his name to ${data.username})`);
     socket.username = data.username;
   })
 
@@ -35,5 +35,6 @@ io.on('connection', socket => {
       message: data.message,
       username: socket.username
     });
+    console.log(`User ${socket.username} (${socket.id}) : ${data.message}`);
   })
 })

@@ -1,6 +1,6 @@
 (() => {
     //make connection
-    const socket = io.connect('http://localhost:3000');
+    const socket = io();
 
     const message = document.getElementById('message');
     const username = document.getElementById('username');
