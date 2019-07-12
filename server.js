@@ -1,23 +1,35 @@
 const express = require('express');
 const app = express();
-const http = require('http').createServer(app);
-const io = require('socket.io')(http);
+const server = app.listen(3000); // listen on port 3000
+const io = require('socket.io')(server);
 
+app.set('view engine', 'ejs');
+
+//middlewares
+app.use(express.static('public'));
+
+//routes
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+  res.render('index');
 })
 
+//io
 io.on('connection', socket => {
-    console.log('a user connected');
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
-    });
-});
+  console.log('New user connected');
 
-io.on('connection', socket => {
-    socket.on('chat message', function(msg){
-      io.emit('chat message', msg);
+  //default username
+  socket.username = 'Anonymous';
+
+  //listen on change_username
+  socket.on('change_username', data => {
+    socket.username = data.username;
+  })
+
+  //listen on new_message
+  socket.on('new_message', data => {
+    io.sockets.emit('new_message', {
+      message: data.message,
+      username: socket.username
     });
-  });
-  
-http.listen(3000, () => console.log('Server running on port 3000'));
+  })
+})
