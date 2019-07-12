@@ -10,7 +10,6 @@
 
     //emit message
     send_message.addEventListener('click', () => {
-        console.log(message.value);
         socket.emit('new_message', {message : message.value})
     })
 
