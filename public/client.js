@@ -10,8 +10,19 @@
 
     //emit message
     send_message.addEventListener('click', () => {
-        socket.emit('new_message', {message : message.value})
+        socket.emit('new_message', {
+            message: message.value
+        })
     })
+    message.addEventListener('keydown', () => {
+        console.log(event.key);
+        if (event.key === 'Enter') {
+            socket.emit('new_message', {
+                message: message.value
+            })
+        }
+    })
+
 
     //listen new messages
     socket.on('new_message', data => {
@@ -29,5 +40,13 @@
         socket.emit('change_username', {
             username: username.value
         })
+    })
+    username.addEventListener('keydown', () => {
+        console.log(event.key);
+        if (event.key === 'Enter') {
+            socket.emit('change_username', {
+                username: username.value
+            })
+        }
     })
 })();
