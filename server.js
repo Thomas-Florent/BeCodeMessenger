@@ -12,6 +12,8 @@ mongo.connect('mongodb+srv://Admin:Admin1234@becodemessenger-qswmo.mongodb.net/t
 
 let db = mongo.connection;
 
+app.use(express.static(__dirname + "/"))
+
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
