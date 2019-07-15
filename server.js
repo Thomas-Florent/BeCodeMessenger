@@ -73,7 +73,7 @@ db.on('open', () => {
     // Handle clear
     socket.on('clear', function (data) {
       // Remove all chats from collection
-      chat.deleteOne({}, function () {
+      chat.deleteMany({}, function () {
         // Emit cleared
         socket.emit('cleared');
       });
