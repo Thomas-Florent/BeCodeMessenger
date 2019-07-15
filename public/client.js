@@ -15,7 +15,6 @@
         })
     })
     message.addEventListener('keydown', () => {
-        console.log(event.key);
         if (event.key === 'Enter') {
             socket.emit('new_message', {
                 message: message.value
@@ -26,27 +25,40 @@
 
     //listen new messages
     socket.on('new_message', data => {
-        console.log(data);
-        const newMessageTag = document.createElement('p');
-        const newMessageTextNode = `${data.username}: ${data.message}`;
-        newMessageTag.append(newMessageTextNode);
-        console.log(newMessageTag);
-        chatroom.append(newMessageTag);
+        const p = document.createElement('p');
+        const textNode = `${data.username}: ${data.message}`;
+        p.append(textNode);
+        chatroom.append(p);
     })
 
     //emit a username
     send_username.addEventListener('click', () => {
-        console.log(username.value);
         socket.emit('change_username', {
             username: username.value
         })
     })
     username.addEventListener('keydown', () => {
-        console.log(event.key);
         if (event.key === 'Enter') {
             socket.emit('change_username', {
                 username: username.value
             })
         }
     })
+
+    //listen changed usernames
+    socket.on('change_username', data => {
+        const p = document.createElement('p');
+        const textNode = `${data.oldUN} renamed : ${data.newUN}`;
+        p.append(textNode);
+        chatroom.append(p);
+    })
+
+    //listen new users 
+    socket.on('connection', data => {
+        const p = document.createElement('p');
+        const textNode = `${data.user} joined`;
+        p.append(textNode);
+        chatroom.append(p);
+    })
 })();
+

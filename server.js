@@ -17,16 +17,25 @@ app.get('/', (req, res) => {
 io.on('connection', socket => {
   //default username
   socket.username = 'Anonymous';
-
+  socket.emit('name', {
+    name: socket.username
+  })
+  
   //show user connecting and disconnecting
   console.log(`User ${socket.username} (${socket.id}) connected`);
-  socket.on('disconnect', () => console.log(`User ${socket.username} (${socket.id}) disconnected`));
+  socket.on('disconnect', () => {
+    console.log(`User ${socket.username} (${socket.id}) disconnected`)
+  });
 
-  
   //listen on change_username
   socket.on('change_username', data => {
     console.log(`User ${socket.username} (${socket.id}) changed his name to ${data.username})`);
+    io.sockets.emit('change_username', {
+      oldUN: socket.username,
+      newUN: data.username
+    })
     socket.username = data.username;
+
   })
 
   //listen on new_message
